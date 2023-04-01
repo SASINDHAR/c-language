@@ -1,4 +1,5 @@
-2.
+2.question
+
 #include <stdio.h>
 int main()
 {
@@ -10,7 +11,6 @@ int main()
     for (i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
-
     int max1 = arr[0], max2 = arr[1];
     if (max2 > max1) {
         int temp = max1;
@@ -29,11 +29,11 @@ int main()
 
     printf("The FIRST LARGEST = %d\n", max1);
     printf("THE SECOND LARGEST = %d\n", max2);
-
     return 0;
 }
 
-3.
+3.question
+
 #include <stdio.h>
     void main ()
     {
@@ -90,9 +90,10 @@ int main()
             printf("The average of %d  and %d in array is %d in numbers \n",
             number[1], number[n - 2], counter);
 }
-4.
+
+4.question
+
 #include <stdio.h>
- 
 int maximum_difference(int array[], int arr_size)
 {
     int max_diff = array[1] - array[0];
@@ -107,7 +108,6 @@ int maximum_difference(int array[], int arr_size)
     }
     return max_diff;
 }
- 
 int main()
 {
     int array[] = {10, 15, 90, 200, 110};
@@ -115,7 +115,9 @@ int main()
     getchar();
     return 0;
 }
-5.
+
+5.question
+
 #include <stdio.h>
 int main()
 {
@@ -153,18 +155,16 @@ int main()
           count++;
         }
     }
- 
     printf("\nArray After  Removing Duplicates: ");
     for (int i = 0; i < count; i++)
         printf("%d ", temp[i]);
- 
     return 0;
 }
-6.
+
+6.question
+
 #include <stdio.h>
-
 void sort_descending(int arr[], int n);
-
 int main() {
     int n, i;
     printf("Enter the value of N: ");
@@ -194,9 +194,10 @@ void sort_descending(int arr[], int n) {
         }
     }
 }
-7.
+
+7.question
+
 #include <stdio.h>
- 
 int main()
 {
     int size;
@@ -204,49 +205,40 @@ int main()
     scanf("%d",&size);
     printf("Enter Array Elements: ");
     int arr[size];
- 
-    //Input array elements
     for(int i=0;i<size;i++)
     scanf("%d",&arr[i]);
     printf("Entered Array is: ");
     for(int i=0;i<size;i++)
     printf("%d ",arr[i]);
- 
-    //Start points at the first element and end points at the last element
-    int start=0,end=size-1;
     while(start<end)
     {
-        //Swapping elements
         int temp=arr[start];
         arr[start]=arr[end];
         arr[end]=temp;
- 
-        //Incrementing start  and decrementing end
         start++;
         end--;
     }
- 
-    //Printing reversed array
     printf("\nReversed array is: ");
     for(int i=0;i<size;i++)
     printf("%d ",arr[i]);
     return 0;
 }
-8.
+
+8.question
+
 #include <stdio.h>
-
 #define MAX_SIZE 100
-
-int main() {
+int main()
+{
     int arr[MAX_SIZE], freq[MAX_SIZE];
     int size, i, j, count;
-    
+   
     printf("Enter the size of the array: ");
     scanf("%d", &size);
     printf("Enter the elements of the array:\n");
     for (i = 0; i < size; i++) {
         scanf("%d", &arr[i]);
-        freq[i] = -1; // mark as visited
+        freq[i] = -1; 
     }
 
     for (i = 0; i < size; i++) {
@@ -254,7 +246,7 @@ int main() {
         for (j = i+1; j < size; j++) {
             if (arr[i] == arr[j]) {
                 count++;
-                freq[j] = 0; // mark as visited
+                freq[j] = 0; 
             }
         }
         if (freq[i] != 0) {
@@ -268,29 +260,24 @@ int main() {
             printf("%d occurs %d times\n", arr[i], freq[i]);
         }
     }
-
     return 0;
 }
-9.
+
+9.question
+
 #include <stdio.h>
-
 #define MAX_SIZE 100
-
 int main()
 {
     int arr[MAX_SIZE];
     int i, j, temp, n;
-
     printf("Enter the value of N: ");
     scanf("%d", &n);
-
     printf("Enter the numbers: ");
     for(i=0; i<n; i++)
     {
         scanf("%d", &arr[i]);
     }
-
-    /* Sort the array in descending order */
     for(i=0; i<n; i++)
     {
         for(j=i+1; j<n; j++)
@@ -303,8 +290,6 @@ int main()
             }
         }
     }
-
-    /* Print the array in descending order */
     printf("The numbers arranged in descending order are given below:\n");
     for(i=0; i<n; i++)
     {
