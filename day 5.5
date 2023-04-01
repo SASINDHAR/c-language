@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define ALPHABET_SIZE 26
+int main() 
+{
+    FILE *data_file, *stats_file;
+    char data_filename[] = "data.txt";
+    char stats_filename[] = "statistics.txt";
+    int letter_counts[ALPHABET_SIZE] = {0};
+    int c;
+    data_file = fopen(data_filename, "r");
+    if (data_file == NULL) {
+        printf("Failed to open data file.\n");
+        exit(1);
+    }
+    while ((c = fgetc(data_file)) != EOF)
+    {
+        if (isalpha(c)) {
+            c = tolower(c);
+            letter_counts[c - 'a']++;
+        }
+    }
+    fclose(data_file);
+    stats_file = fopen(stats_filename, "w");
+    if (stats_file == NULL) {
+        printf("Failed to open statistics file.\n");
+        exit(1);
+    }
+    for (int i = 0; i < ALPHABET_SIZE; i++) {
+        fprintf(stats_file, "%c: %d\n", 'a' + i, letter_counts[i]);
+    }
+    fclose(stats_file);
+    printf("Letter counts written to %s.\n", stats_filename);
+    return 0;
+}
