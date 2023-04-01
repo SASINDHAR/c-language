@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    FILE *data_file;
+    int num_records, record_size, i, j;
+    char record_buffer[256];
+    data_file = fopen("data.bin", "rb");
+    if (data_file == NULL) {
+        printf("Failed to open data file.\n");
+        exit(1);
+    }
+    fread(&num_records, sizeof(int), 1, data_file);
+    fread(&record_size, sizeof(int), 1, data_file);
+    printf("Number of records: %d\n", num_records);
+    printf("Record size: %d bytes\n", record_size);
+    for (i = 0; i < num_records; i++) 
+    {
+        fread(record_buffer, record_size, 1, data_file);
+        printf("Record %d: ", i + 1);
+        for (j = 0; j < record_size; j++) {
+            printf("%02X ", (unsigned char) record_buffer[j]);
+        }
+        printf("\n");
+    }
+    fclose(data_file);
+    return 0;
+}
