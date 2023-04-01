@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+ {
+ struct employee
+ {
+ int eno;
+ char ename[20];
+ int salary;
+ }emp[3];
+ int i,j,max;
+ printf("\n enter employee info");
+ for(i=0;i<2;i++)
+  {
+  printf("\n enter employeeno");
+  scanf("\n %d",&emp[i].eno);
+  printf("\n enter name");
+  scanf("\n %s",&emp[i].ename);
+  printf("\n enter employee salary");
+  scanf("\n %d",&emp[i].salary);
+  }
+  max=emp[0].salary;
+  for(i=0;i<2;i++)
+   {
+            if(emp[i].salary>max)
+             {
+            max=emp[i].salary;
+             }
+            }
+   printf("\n the employee who have maximum salary  is");
+
+            printf("\n EMPNO    NAME  SALARY");
+   for(i=0;i<2;i++)
+            {
+            if(emp[i].salary==max)
+            {
+             printf("\n %d\t %s\t %d",emp[i].eno,emp[i].ename,emp[i].salary);
+            }
+            }
+  getch();
+ }
